@@ -1,84 +1,175 @@
-body, html {
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
+    box-sizing: border-box;
+}
 
-  .vimeo-background {
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* bagian navbar */
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-  }
+    padding: 33px 100px;
+    background: #0B86EE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
 
-  .content {
-    position: relative;
-    z-index: 1;
+.logo {
+    font-size: 32px;
     color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0px -30px;
+}
+
+.navbar a {
+    position: relative;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.ul .dropdown a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.dropdown {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 120%;
+    left: -20%;
+    right: 0;
+    background-color: #439ae6;
+    border: none;
+    transition: opacity 0.3s ease-in-out;
+    padding: 15px 0px;
+    transform: translateX(20%);
+}
+
+.dropdown a {
+    display: block;
+}
+
+.dropdown li {
+    padding: 10px 0px;
+}
+
+.navbar li:hover .dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/*bagian video*/
+.vimeo-background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.vimeo-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+ /*bagian transisi*/
+.transition-black {
+    background-color: #0B86EE;
+    color: #fff;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+    padding: 170px 0; 
+}
 
-  .menu-icon {
-      display: inline-block;
-      cursor: pointer;
-      position: absolute; 
-      top: 15px; 
-      right: 15px;
-      background-color: white;
-      border-radius: 5px; 
-      padding: 5px 10px;
-  }
+.transition-black h1 {
+    margin-top: -70px;
+    font-size: 40px;
+}
 
-  .menu-icon div {
-      width: 35px;
-      height: 5px;
-      background-color: #333;
-      margin: 6px 0;
-      transition: 0.4s;
-  }
+/*bagian putihnya*/
+.white-section {
+    background-color: #fff;
+    position: relative;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 50px 50px 0 0;
+    margin-top: -50px;
+}
 
-  .dropdown-content {
-      font-family: 'Times New Roman', 'Helvetica Neue', sans-serif;
-      display: none;
-      position: absolute;
-      top: 0; 
-      right: calc(100% + 5px);
-      background-color: white; 
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      width: auto; 
-      min-width: 100px;
-  }
+/* Kontainer Gambar dan Deskripsi */
+.white-section .images-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: -100px; 
+}
 
-  .menu-icon:hover .dropdown-content {
-      display: block; 
-  }
+/* Gambar */
+.image-item {
+    text-align: center;
+}
 
-  .menu-icon:hover .bar1 {
-      transform: rotate(-50deg) translate(-7px, 6px);
-  }
+.image-item img {
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+}
 
-  .menu-icon:hover .bar2 {
-      opacity: 0;
-  }
+/* Deskripsi di bawah gambar */
+.image-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
 
-  .menu-icon:hover .bar3 {
-      transform: rotate(50deg) translate(-7px, -6px);
-  }
-
-  .dropdown-content a {
-      color: black;
-      padding: 12px 16px; 
-      text-decoration: none;
-      display: block; 
-  }
-  
-  .dropdown-content a:hover {
-      background-color: white; 
-  }
+.Project {
+    text-align: center;
+    background-color: #fff;
+    padding: 50px 20px;
+}
