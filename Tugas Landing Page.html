@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <a href="#" class="logo">Algoritma Pemograman</a>
+    <a href="#" class="logo">Fufufafa Corp</a>
 
     <nav class="navbar">
       <ul>
@@ -25,7 +25,10 @@
   </header>
 
   <section class="vimeo-background">
-    <iframe src="https://player.vimeo.com/video/1012679562?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <div id="video-container">
+      <iframe id="video1" title="vimeo-player-1" src="https://player.vimeo.com/video/1013154681?h=67bd9d1cad&autoplay=1&muted=1&background=1" allowfullscreen></iframe>
+      <iframe id="video2" title="vimeo-player-2" src="https://player.vimeo.com/video/1013154587?h=14b65c7ca2&muted=1&background=1" allowfullscreen loop></iframe>
+    </div>
   </section>
 
   <section class="transition-black">
@@ -34,33 +37,69 @@
 
   <section class="white-section">
     <div class="images-container">
-      <div class="image-item">
+      <div class="image-item1">
           <img src="coba.jpg" alt>
-          <p>Evan</p>
-          <p>Role</p>
+          <p><strong>Evan Nathaniel Susanto</strong></p>
+          <p><strong>164231061</strong></p>
       </div>
-      <div class="image-item">
+    <div class="image-item2">
           <img src="coba.jpg" alt>
-          <p>Oki</p>
-          <p>Role</p>
-      </div>
-      <div class="image-item">
+          <p><strong>Primarizki Ahmad Hariyono</strong></p>
+          <p><strong>164231062</strong></p>
+    </div>
+      <div class="image-item3">
           <img src="coba.jpg" alt>
-          <p>Ryan</p>
-          <p>Role</p>
-      </div>
+          <p><strong>Ryan Zufar Ahmadi</strong></p>
+          <p><strong>164231096</strong></p>
+    </div>
   </div>
   </section>
 
   <section class="Project">
     <h1> Project kita cuuuyyy </h1>
     <div class="Preview">
-      
+      <a href="http://34.101.184.29/TugasAlproCSV.html" class="project-box">
+        <p>Membaca file CSV dan mengubahnya dalam bentuk table</p>
+    </a>
     </div>
   </section>
 
   <footer>
     <h1>INI ADALAH FOOTER</h1>
   </footer>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+  <script>
+    const video1 = document.getElementById('video1');
+    const video2 = document.getElementById('video2');
+    const player1 = new Vimeo.Player(video1);
+
+    window.onload = () => {
+      video1.classList.add('active');
+      player1.play();
+      player1.getDuration().then(function(duration) {
+        const switchTime = duration - 2.09;
+        player1.on('timeupdate', function(data) {
+          if (data.seconds >= switchTime) {
+            switchToVideo2();
+          }
+        });
+      }).catch(function(error) {
+        console.log('Error getting duration:', error);
+      });
+    };
+
+    function switchToVideo2() {
+      video1.classList.remove('active');
+      video2.classList.add('active');
+      const player2 = new Vimeo.Player(video2);
+      player2.play().then(function() {
+        player2.setLoop(true);
+      }).catch(function(error) {
+        console.log('Error playing video2:', error);
+      });
+    }
+  </script>
 </body>
 </html>
