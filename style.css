@@ -21,7 +21,6 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    opacity: 1;
     animation: fadeIn 1.2s 3.5s forwards;
     opacity: 0;
 }
