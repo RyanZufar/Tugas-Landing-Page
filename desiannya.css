@@ -21,7 +21,9 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    opacity: 0.9;
+    opacity: 1;
+    animation: fadeIn 1.2s 3.5s forwards;
+    opacity: 0;
 }
 
 .logo {
@@ -30,6 +32,8 @@ body {
     text-decoration: none;
     font-weight: 700;
     margin-left: -50px;
+    animation: fadeIn 1.2s 3.5s forwards;
+    opacity: 0;
 }
 
 
@@ -45,6 +49,8 @@ body {
     background-color: #16325b;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+    animation: fadeIn 1.2s 4s forwards;
+    opacity: 0;
 }
 .navbar a:hover {
     background-color: white;
@@ -104,6 +110,20 @@ body {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.corplogo {
+    position: absolute;
+    top: 52%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+
+.corplogo img {
+    max-width: 400px;
+    max-height: 400px;
+    animation: fadeIn 1.5s 3s forwards;
+    opacity: 0;
 }
 
 .transition-black {
@@ -220,11 +240,11 @@ iframe {
     height: 100%;
     border: none;
     opacity: 0;
-  }
+}
 
 iframe.active {
     opacity: 1;
-  }
+}
 
 @keyframes bounce {
     0%, 100% {
@@ -232,5 +252,11 @@ iframe.active {
     }
     27% {
         transform: translateY(-15px);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
